@@ -13,8 +13,22 @@
    <ul>
       <li *ngFor ='let done of finishedChores'>{{done}}</li>
    </ul>
-   <img src="https://www.launchcode.org/assets/icons/trophy-95e8cbe9bfda44123422302951deb1c92a237d39052669b8fbfafec00cb4f608.png" *ngIf = "chores.length===0 || finishedChores.length> chores.length + 3">
+   <img src="{{trophyImage}}" *ngIf = "chores.length===0 || finishedChores.length>= chores.length + 3; else noAllowance">
+
+   <ng-template #noAllowance>
+       <p>No allowance yet.</p>
+   </ng-template>
 </div>
+<div>
+    
+</div>
+    <h1 *ngIf = "chores.length ===0 && finishedChores.length>=4; else earnIceCream">"Ice cream treat!"</h1>
+    <ng-template #earnIceCream>
+        <h3>How to Earn Ice Cream</h3>
+        <p>you gotta do all your chores.</p>
+        <p>you gotta do 4 or more chores.</p>
+    </ng-template>
+<!-- Finally, if the chores array is empty AND finishedChores contains 4 or more items, display an h1 underneath the lists with the text "Ice cream treat!" Otherwise, display h3 and p elements that describe how to earn ice cream. -->
 <hr>
 
 
