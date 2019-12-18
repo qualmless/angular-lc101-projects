@@ -32,12 +32,12 @@
                 <li *ngFor = "let selected of crew">{{selected.name}}</li>
             </ul>
             <!-- Add a "Clear Crew List" button here. -->
-            <button (click)="crew.value = '' ">Clear Crew List</button>
+            <button *ngIf = "crew.length !== 0" (click)="crew = [] ">Clear Crew List</button>
         </div>
     </div>
     <hr>
     <div class = 'centered'>
-        <button (click)="selected = false">Clear Data & Image</button> 
+        <button *ngIf = "crew.length !== 0" (click)="selected = false">Clear Data & Image</button> 
         <!-- Add a "Send on Mission" button here. -->
         <button *ngIf = "selected && !crew.includes(selected) && crew.length < 3" (click)="addToCrew(selected)">Send on Mission</button>
     </div>
