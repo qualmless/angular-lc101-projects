@@ -13,4 +13,8 @@ export class ButtonsComponent implements OnInit {
 
    ngOnInit() { }
 
+   clickedButton (color) {
+      color.inactive=true;
+   }
+
 }
